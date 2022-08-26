@@ -37,12 +37,7 @@ jobs:
       run: |
         yes | head -1 | ./export_features_cloud.sh || yes 
     - name: Run Cypress tests
-      uses: cypress-io/github-action@v2
-      continue-on-error: true
-      with:
-          # Specify Browser; container image has Firefox
-        browser: ${{ env.BROWSER }}
-        spec: cypress/**/*.feature
+      ./export_features_cloud.sh
     # - run: npm run test
     - name: attach Cypress screenshots to Cucumber JSON report
       run: npm run attach_screenshots
