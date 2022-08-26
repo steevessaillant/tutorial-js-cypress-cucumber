@@ -46,7 +46,7 @@ jobs:
         browser: ${{ env.BROWSER }}
         spec: features/**/*.feature
         config: integrationFolder=.
-    # - run: npm run test
+     - run: npx cypress run
     - name: attach Cypress screenshots to Cucumber JSON report
       run: npm run attach_screenshots
     - name: merge multiple Cucumber JSON reports to a single JSON file

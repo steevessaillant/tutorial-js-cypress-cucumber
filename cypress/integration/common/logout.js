@@ -3,13 +3,16 @@ import WelcomePage from '../../pages/welcome-page';
 import LogoutResultsPage from '../../pages/logout-results-page';
 
 Given(/^user is on the welcome page$/, () => {
-  WelcomePage.visit();
+  throw new Error("Implementation Pending");
+  //WelcomePage.visit();
 });
 
 When('user chooses to logout', () => {
-  WelcomePage.pressLogout();
+  throw new Error("Implementation Pending");
+  //WelcomePage.pressLogout();
 });
 
 Then(/^login page should be open$/, () => {
-    LogoutResultsPage.expect().toBeSuccessful();
-  });
+  throw new Error("Implementation Pending");
+  LogoutResultsPage.expect().toBeSuccessful();
+});
