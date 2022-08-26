@@ -51,10 +51,9 @@ jobs:
     - name: debug testexec json
       run: |
         cat test_exec.json
-    - name: "Import results to Xray (cloud) using multipart endpoint"
+    - name: "Import results to Xray (cloud)"
       run: |
-        cat cloud_auth.json.sample  | sed s/CLIENT_ID/${{ secrets.XRAYCLOUD_CLIENT_ID }}/g | sed s/CLIENT_SECRET/${{ secrets.XRAYCLOUD_CLIENT_SECRET }}/g > cloud_auth.json
-        curl -X POST -H "Authorization: Bearer ${{ env.token }}"  -F info=@test_exec.json -F results=@"merged-test-results.json" "${{ secrets.XRAYCLOUD_BASE_URL }}/api/v1/import/execution/cucumber"
+        ./import_results_cloud.sh
     - name: "Import results to Xray using GH action"
       uses: mikepenz/xray-action@v2.3.0
       with:
