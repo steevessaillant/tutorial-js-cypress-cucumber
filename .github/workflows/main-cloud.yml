@@ -24,11 +24,8 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
-    - uses: actions/setup-node@v3
-      with:
-        node-version: 16
+    - uses: actions/checkout@v2
     - name: generate auxiliary JSON for authenticating with Xray cloud and obtain token
       run: |
         cat cloud_auth.json.sample  | sed s/CLIENT_ID/${{ secrets.XRAYCLOUD_CLIENT_ID }}/g | sed s/CLIENT_SECRET/${{ secrets.XRAYCLOUD_CLIENT_SECRET }}/g > cloud_auth.json
@@ -37,6 +34,9 @@ jobs:
       run: |
         yes | head -1 | ./export_features_cloud.sh || yes 
     - name: Run Cypress tests
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16
       run: | 
         ./export_features_cloud.sh || true
     # - run: npm run test
