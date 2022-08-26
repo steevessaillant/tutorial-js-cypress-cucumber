@@ -1,5 +1,5 @@
 @REQ_AQADX-3
-Feature: Authentification et Navigation
+Feature: Authentification
 
 	Background:
 		#@PRECOND_AQADX-4
