@@ -42,7 +42,8 @@ jobs:
     - name: Run Cypress tests
       run: | 
         ./export_features_cloud.sh || true
-    # - run: npm run test
+     - run: | 
+        ./run_tests.sh || true
     - name: attach Cypress screenshots to Cucumber JSON report
       run: npm run attach_screenshots
     - name: merge multiple Cucumber JSON reports to a single JSON file
