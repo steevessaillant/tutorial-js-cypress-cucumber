@@ -42,8 +42,7 @@ jobs:
       with:
           # Specify Browser; container image has Firefox
         browser: ${{ env.BROWSER }}
-        spec: features/**/*.feature
-        config: integrationFolder=.
+        spec: cypress/**/*.feature
     # - run: npm run test
     - name: attach Cypress screenshots to Cucumber JSON report
       run: npm run attach_screenshots
