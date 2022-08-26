@@ -29,7 +29,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Intall missing node dependency
+    - name: Install missing node dependency
       run: |
         npm install fs-extra --legacy-peer-deps
     - name: generate auxiliary JSON for authenticating with Xray cloud and obtain token
@@ -54,7 +54,7 @@ jobs:
     - name: "Import results to Xray (cloud) using multipart endpoint"
       run: |
         cat cloud_auth.json.sample  | sed s/CLIENT_ID/${{ secrets.XRAYCLOUD_CLIENT_ID }}/g | sed s/CLIENT_SECRET/${{ secrets.XRAYCLOUD_CLIENT_SECRET }}/g > cloud_auth.json
-        curl -X POST -H "Authorization: Bearer ${{ env.token }}"  -F info=@test_exec.json -F results=@"merged-test-results.json" "${{ secrets.XRAYCLOUD_BASE_URL }}/api/v1/import/execution/cucumber/multipart"
+        curl -X POST -H "Authorization: Bearer ${{ env.token }}"  -F info=@test_exec.json -F results=@"merged-test-results.json" "${{ secrets.XRAYCLOUD_BASE_URL }}/api/v1/import/execution/cucumber"
     - name: "Import results to Xray using GH action"
       uses: mikepenz/xray-action@v2.3.0
       with:
