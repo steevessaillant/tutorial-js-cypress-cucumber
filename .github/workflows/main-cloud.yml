@@ -20,12 +20,13 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.6]
+        node-version: [16]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - name: generate auxiliary JSON for authenticating with Xray cloud and obtain token
+    - name: Use Node.js ${{ matrix.node-version }}
     - uses: actions/checkout@v2
+    - name: generate auxiliary JSON for authenticating with Xray cloud and obtain token
       run: |
         cat cloud_auth.json.sample  | sed s/CLIENT_ID/${{ secrets.XRAYCLOUD_CLIENT_ID }}/g | sed s/CLIENT_SECRET/${{ secrets.XRAYCLOUD_CLIENT_SECRET }}/g > cloud_auth.json
         echo token=$(curl -H "Content-Type: application/json" -X POST --data @"cloud_auth.json" ${{ secrets.XRAYCLOUD_BASE_URL }}/api/v1/authenticate| tr -d '"') >> $GITHUB_ENV
@@ -33,9 +34,6 @@ jobs:
       run: |
         yes | head -1 | ./export_features_cloud.sh || yes 
     - name: Run Cypress tests
-    - uses: actions/setup-node@v3
-      with:
-        node-version: 16
       run: | 
         ./export_features_cloud.sh || true
     # - run: npm run test
