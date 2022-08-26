@@ -1,5 +1,6 @@
 {
   "baseUrl": "https://robotwebdemo.herokuapp.com/",
+  "video": false,
   "testFiles": "**/*.feature",
   "ignoreTestFiles": [
     "*.js",

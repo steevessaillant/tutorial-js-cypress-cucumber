@@ -2,7 +2,7 @@ import { Given, When } from 'cypress-cucumber-preprocessor/steps';
 import LoginPage from '../../pages/login-page';
 import LoginResultsPage from '../../pages/login-results-page';
 
-Given(/^browser is opened to login page$/, () => {
+Given(/^browser is openened to the login page$/, () => {
   LoginPage.visit();
 });
 
@@ -12,7 +12,7 @@ When('user {string} logs in with password {string}', (username, password) => {
   LoginPage.pressLogin();
 });
 
-Then(/^welcome page should be open$/, () => {
+Then(/^welcome page should be opened$/, () => {
     LoginResultsPage.expect().toBeSuccessful();
   });
 
