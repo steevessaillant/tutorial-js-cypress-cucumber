@@ -6,4 +6,4 @@ token=$(curl -H "Content-Type: application/json" -X POST --data @"cloud_auth.jso
 curl -H "Content-Type: application/json" -X GET -H "Authorization: Bearer $token" "$BASE_URL/api/v1/export/cucumber?keys=$KEYS" -o features.zip
 
 rm -rf cypress/integration/authentication/*.feature
-yes "" | unzip -o features.zip -d cypress/integration/authentication
+unzip -o features.zip -d cypress/integration/authentication
