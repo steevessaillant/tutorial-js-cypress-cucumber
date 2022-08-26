@@ -35,7 +35,7 @@ jobs:
         echo token=$(curl -H "Content-Type: application/json" -X POST --data @"cloud_auth.json" ${{ secrets.XRAYCLOUD_BASE_URL }}/api/v1/authenticate| tr -d '"') >> $GITHUB_ENV
     - name: Export scenarios from Xray and generate .feature file(s)
       run: |
-        ./export_features_cloud.sh
+        bash -c "yes || true" | ./export_features_cloud.sh
     - name: Run Cypress tests
       uses: cypress-io/github-action@v2
       continue-on-error: true
