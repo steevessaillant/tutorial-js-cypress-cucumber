@@ -37,7 +37,6 @@ jobs:
       run: |
         FEATURES_FILE=featureBundle.zip
         curl -H "Content-Type: application/json" -X GET -H "Authorization: Bearer ${{ env.token }}" "${{ secrets.XRAYCLOUD_BASE_URL }}/api/v1/export/cucumber -o $FEATURES_FILE
-        rm -f integration/authentication/*.feature
         unzip -o $FEATURES_FILE  -d integration/authentication/
     - name: Run Cypress tests
       uses: cypress-io/github-action@v2
