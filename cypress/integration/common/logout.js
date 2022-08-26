@@ -14,5 +14,5 @@ When('user chooses to logout', () => {
 
 Then(/^login page should be open$/, () => {
   throw new Error("Implementation Pending");
-  LogoutResultsPage.expect().toBeSuccessful();
+  //LogoutResultsPage.expect().toBeSuccessful();
 });

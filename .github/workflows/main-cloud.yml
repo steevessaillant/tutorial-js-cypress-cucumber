@@ -35,9 +35,12 @@ jobs:
         echo token=$(curl -H "Content-Type: application/json" -X POST --data @"cloud_auth.json" ${{ secrets.XRAYCLOUD_BASE_URL }}/api/v1/authenticate| tr -d '"') >> $GITHUB_ENV
     - name: Export scenarios from Xray and generate .feature file(s)
       run: |
-        FEATURES_FILE=featureBundle.zip
-        curl -H "Content-Type: application/json" -X GET -H "Authorization: Bearer ${{ env.token }}" "${{ secrets.XRAYCLOUD_BASE_URL }}/api/v1/export/cucumber -o $FEATURES_FILE
-        unzip -o $FEATURES_FILE  -d integration/authentication/
+        KEYS="AQADX-5;AQADX-9"
+        FEATURES_FILE=features.zip
+        curl -H "Content-Type: application/json" -X GET -H "Authorization: Bearer ${{ env.token }}" "${{ secrets.XRAYCLOUD_BASE_URL }}/api/v1/export/cucumber?keys=$KEYS -o $FEATURES_FILE
+        rm -rf cypress/integration/authentication/*.feature
+        unzip -o features.zip -d cypress/integration/authentication
+
     - name: Run Cypress tests
       uses: cypress-io/github-action@v2
       continue-on-error: true
