@@ -37,7 +37,8 @@ jobs:
       run: |
         yes | head -1 | ./export_features_cloud.sh || yes 
     - name: Run Cypress tests
-      ./export_features_cloud.sh
+      run: | 
+        ./export_features_cloud.sh
     # - run: npm run test
     - name: attach Cypress screenshots to Cucumber JSON report
       run: npm run attach_screenshots
