@@ -31,7 +31,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Intall missing node dependency
       run: |
-        npm -i fs-extra
+        npm install fs-extra --legacy-peer-deps
     - name: generate auxiliary JSON for authenticating with Xray cloud and obtain token
       run: |
         cat cloud_auth.json.sample  | sed s/CLIENT_ID/${{ secrets.XRAYCLOUD_CLIENT_ID }}/g | sed s/CLIENT_SECRET/${{ secrets.XRAYCLOUD_CLIENT_SECRET }}/g > cloud_auth.json
