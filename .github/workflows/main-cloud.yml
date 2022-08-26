@@ -39,12 +39,10 @@ jobs:
     - name: Export scenarios from Xray and generate .feature file(s)
       run: |
         yes | head -1 | ./export_features_cloud.sh || yes 
-    - name: Run Cypress tests
+    - name: Run Cypress tests and attach Cypress screenshots to Cucumber JSON report
       run: | 
         ./export_features_cloud.sh || true 
         ./run_tests.sh || true
-    - name: attach Cypress screenshots to Cucumber JSON report
-      run: npm run attach_screenshots
     - name: merge multiple Cucumber JSON reports to a single JSON file
       run: node_modules/cucumber-json-merge/bin/cucumber-json-merge  -d cypress/cucumber-json/
     - name: generate auxiliary JSON to define some fields on the Test Execution to be created
