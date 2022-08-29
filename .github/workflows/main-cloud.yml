@@ -53,7 +53,7 @@ jobs:
        testFormat: "cucumber"
        testPaths: "merged-test-results.json"
        testExecutionJson: "test_exec.json"
-       testExecKey: "AQADX-8"
+       testExecKey: "AQADX-30"
        projectKey: "AQADX"
        testPlanKey: "AQADX-6"
        combineInSingleTestExec: true
