@@ -1,7 +1,9 @@
 #!/bin/bash
 
 BASE_URL=https://xray.cloud.getxray.app
-KEYS="AQADX-30"
+# here KEYS will contain Test Execution Keys that contains the test ,if you specify the test keys instead a new execution will created and WE DO NOT WANT THIS
+# in order to reuse a test execution we must asscociate the test issue to the specifed executions 
+KEYS="AQADX-30"  # use testExecKeys not directly test keys
 token=$(curl -H "Content-Type: application/json" -X POST --data @"cloud_auth.json" $BASE_URL/api/v1/authenticate| tr -d '"')
 curl -H "Content-Type: application/json" -X GET -H "Authorization: Bearer $token" "$BASE_URL/api/v1/export/cucumber?keys=$KEYS" -o features.zip
 
