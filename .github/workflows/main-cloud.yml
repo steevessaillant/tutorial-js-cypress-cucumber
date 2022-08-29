@@ -1,7 +1,7 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: CI with Xray cloud
+name: CI with Xray cloud instance
 
 on:
   push:
@@ -35,15 +35,14 @@ jobs:
     - name: generate auxiliary JSON for authenticating with Xray cloud and obtain token
       run: |
         echo token=$(curl -H "Content-Type: application/json" -X POST --data @"cloud_auth.json" ${{ secrets.XRAYCLOUD_BASE_URL }}/api/v1/authenticate| tr -d '"') >> $GITHUB_ENV
-    - name: Export scenarios from Xray and generate .feature file(s)
+    - name: Export scenarios from Xray using export_features_cloud.sh and generate .feature file(s)
       run: |
         yes | head -1 | ./export_features_cloud.sh || yes 
     - name: Run Cypress tests and attach Cypress screenshots to Cucumber JSON report
       run: | 
-        ./export_features_cloud.sh || true 
         ./run_tests.sh || true
     - name: merge multiple Cucumber JSON reports to a single JSON file
       run: node_modules/cucumber-json-merge/bin/cucumber-json-merge  -d cypress/cucumber-json/
-    - name: "Import results to Xray using GH action"
+    - name: "Import results to Xray using import_results_cloud.sh"
       run: |
         ./import_results_cloud.sh || true
