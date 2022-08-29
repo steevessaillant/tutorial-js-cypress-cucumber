@@ -56,3 +56,4 @@ jobs:
        testExecKey: "AQADX-8"
        projectKey: "AQADX"
        testPlanKey: "AQADX-6"
+       combineInSingleTestExec: true
