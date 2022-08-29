@@ -55,3 +55,4 @@ jobs:
        testExecutionJson: "test_exec.json"
        testExecKey: "AQADX-8"
        projectKey: "AQADX"
+       testPlanKey: "AQADX-6"
