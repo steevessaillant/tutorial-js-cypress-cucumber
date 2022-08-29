@@ -1,0 +1,15 @@
+{
+    "fields": {
+        "project": {
+            "key": "AQADX"
+        },
+        "summary": "Test Execution for cucumber javascript execution",
+        "issuetype": {
+            "name": "Fumigatoire (Smoke) pour l'application Todo"
+        }
+    }, 
+    "xrayFields": {
+        	"testPlanKey": "AQADX-7",
+        	"environments": ["chrome"]
+    }
+}
