@@ -45,7 +45,7 @@ jobs:
     - name: merge multiple Cucumber JSON reports to a single JSON file
       run: node_modules/cucumber-json-merge/bin/cucumber-json-merge  -d cypress/cucumber-json/
     - name: "Import results to Xray using GH action"
-      uses: mikepenz/xray-action@@{latest-release}
+      uses: mikepenz/xray-action@v2.3.0
       with:
        username: ${{ secrets.XRAYCLOUD_CLIENT_ID }}
        password: ${{ secrets.XRAYCLOUD_CLIENT_SECRET }}
