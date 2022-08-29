@@ -46,4 +46,4 @@ jobs:
       run: node_modules/cucumber-json-merge/bin/cucumber-json-merge  -d cypress/cucumber-json/
     - name: "Import results to Xray using GH action"
       run: |
-      ./import_results_could.sh || true
+        ./import_results_could.sh || true
