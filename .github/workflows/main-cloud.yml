@@ -45,15 +45,5 @@ jobs:
     - name: merge multiple Cucumber JSON reports to a single JSON file
       run: node_modules/cucumber-json-merge/bin/cucumber-json-merge  -d cypress/cucumber-json/
     - name: "Import results to Xray using GH action"
-      uses: mikepenz/xray-action@v2.4.3
-      with:
-       username: ${{ secrets.XRAYCLOUD_CLIENT_ID }}
-       password: ${{ secrets.XRAYCLOUD_CLIENT_SECRET }}
-       xrayCloud: "true"
-       testFormat: "cucumber"
-       testPaths: "merged-test-results.json"
-       testExecutionJson: "test_exec.json"
-       testExecKey: "AQADX-30"
-       projectKey: "AQADX"
-       testPlanKey: "AQADX-6"
-       combineInSingleTestExec: true
+      run: |
+      ./import_results_could.sh || true
