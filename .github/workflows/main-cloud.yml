@@ -35,18 +35,18 @@ jobs:
     - name: Export scenarios from Xray using export_features_cloud.sh and generate .feature file(s)
       run: |
         yes | head -1 | ./export_features_cloud.sh || yes 
-      name: Cleanup old result files
+    - name: Cleanup old result files
       run: |
         ./run_cleanup.sh
     - name: Run Cypress tests and attach Cypress screenshots to Cucumber JSON report
       uses: cypress-io/github-action@v4
       with:
           browser: chrome
-      name: attach_screenshot & merge
+    - name: attach_screenshot & merge
       run: | 
         ./run_tests.sh || true
     - name: merge multiple Cucumber JSON reports to a single JSON file
       run: node_modules/cucumber-json-merge/bin/cucumber-json-merge  -d cypress/cucumber-json/
-    - name: "Import results to Xray using import_results_cloud.sh"
+    - name: Import results to Xray using import_results_cloud.sh
       run: |
         ./import_results_cloud.sh || true
