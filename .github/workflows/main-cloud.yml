@@ -40,7 +40,7 @@ jobs:
       run: |
         ./run_cleanup.sh
     - name: Run Cypress tests and attach Cypress screenshots to Cucumber JSON report
-      uses: cypress-io/github-action@v4
+      uses: cypress-io/github-action@v2
       with:
           install-command: npm install cypress@7.5.0 -D --legacy-peer-deps
           browser: chrome
