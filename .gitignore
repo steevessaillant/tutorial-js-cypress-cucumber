@@ -7,3 +7,4 @@ cypress/videos/features/*
 cypress/screenshots/features/*
 features/
 cypress/screenshots/*
+/cypress/cucumber-json
