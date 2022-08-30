@@ -1,3 +1,5 @@
+#!/bin/bash
+
 KEYS = "NULL"
 if( ${{ env.BROWSER }} == "chrome")
     then
