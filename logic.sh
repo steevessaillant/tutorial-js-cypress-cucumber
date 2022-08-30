@@ -11,4 +11,4 @@ else
     KEYS="AQADX-30"  # use testExecKeys not directly test keys
 fi
 
-echo "Selected browser is: " $KEYS
+echo "Selected browser is: " $BROWSER
