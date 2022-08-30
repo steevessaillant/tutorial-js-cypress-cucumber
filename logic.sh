@@ -11,4 +11,4 @@ else
     KEYS="AQADX-30"  # use testExecKeys not directly test keys
 fi
 
-echo "Selected browser is: " $BROWSER
+echo "Selected browser is: " $BROWSER "and the update will occure on test execution with id" $KEYS
