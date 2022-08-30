@@ -1,10 +1,10 @@
-const RESULT_HEADER = 'h1';
+const CONSTANTS = require("../resources/text/constants");
 
 class LogoutResultsPage {
     static expect() {
       return {
         toBeSuccessful: () => {
-          cy.get(RESULT_HEADER).should('have.text', 'Login Page')
+          cy.get(CONSTANTS.RESULT_HEADER).should('have.text', CONSTANTS.LOGIN_PAGE_TITLE)
         },
       };
     }

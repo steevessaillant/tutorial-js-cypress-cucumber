@@ -16,7 +16,7 @@
     "test:pull-features": "git submodule update --remote gherkin-features && cp -rf gherkin-features/* cypress/integration && node ./scripts/remove-old-features.js",
     "attach_screenshots": "node attach_screenshots.js"
   },
-  "author": "Xblend",
+  "author": "Xblend (forked and modified by Steeves Saillant)",
   "license": "BSD-3-Clause",
   "dependencies": {
     "axios": "^0.27.2",

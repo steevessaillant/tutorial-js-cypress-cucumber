@@ -1,7 +1,5 @@
+const CONSTANTS = require("../resources/text/constants");
 import LoginPage from './login-page';
-
-const LOGOUT_LINK = 'a';
-const LOGOUT_TEXT = 'logout';
 
 
 class WelcomePage {
@@ -11,7 +9,7 @@ class WelcomePage {
 
 
   static pressLogout() {
-    cy.get(LOGOUT_LINK).contains(LOGOUT_TEXT)
+    cy.get(CONSTANTS.LOGOUT_LINK).contains(CONSTANTS.LOGOUT_TEXT)
       .click();
     return new LoginPage();
   }

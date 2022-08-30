@@ -1,3 +1,7 @@
+#Note : EN- This fork has only kept the jira cloud support for Server DC (like a on premises Jira please check the       original code that this fork was forked from.
+
+FR - Ce fork n'a conservé que la prise en charge du cloud Jira pour Server DC (comme un Jira sur site, veuillez vérifier le code d'origine à partir duquel ce fork a été forké.
+
 # Tutorial with Cypress tests, in JavaScript, using Cucumber, integrated with Xray
 
 [![build workflow](https://github.com/Xray-App/tutorial-js-cypress-cucumber/actions/workflows/main-cloud.yml/badge.svg)](https://github.com/Xray-App/tutorial-js-cypress-cucumber/actions/workflows/main-cloud.yml)
