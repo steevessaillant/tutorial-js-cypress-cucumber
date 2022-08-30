@@ -1,0 +1,1 @@
+rm -f cypress/cucumber-json/*
