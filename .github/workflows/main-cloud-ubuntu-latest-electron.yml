@@ -43,7 +43,7 @@ jobs:
       continue-on-error: true
       with:
           install-command: npm install cypress@7.5.0 -D --legacy-peer-deps
-          browser: env.BROWSER
+          browser: ${{ env.BROWSER }}
     - name: Attach Screenshot evidence & merge feature test results in one file for upload to Jira XRay
       run: | 
         ./run_tests.sh || true
