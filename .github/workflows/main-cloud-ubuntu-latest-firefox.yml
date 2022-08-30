@@ -29,5 +29,5 @@ jobs:
         echo ${{ env.BROWSER }}
     - name: process condition if elif else
       run: |
-        ./logic.sh
+        ./logic.sh || true
     
