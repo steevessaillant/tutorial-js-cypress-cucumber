@@ -1,6 +1,6 @@
 #!/bin/bash
 
-KEYS = "NULL"
+KEYS="NULL"
 if( ${{ env.BROWSER }} == "chrome")
     then
         KEYS="AQADX-46"  # use testExecKeys not directly test keys
