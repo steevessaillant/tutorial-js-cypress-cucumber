@@ -24,6 +24,10 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
+    - name: echo browser
+      run: |
+        echo ${{ env.BROWSER }}
+: '
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
@@ -52,3 +56,5 @@ jobs:
     - name: Import results to Xray using import_results_cloud.sh
       run: |
         ./import_results_cloud.sh || true
+'
+      
