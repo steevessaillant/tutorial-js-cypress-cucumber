@@ -29,9 +29,6 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Install missing node dependency
-      run: |
-        npm install fs-extra --legacy-peer-deps
     - name: generate auxiliary JSON for authenticating with Xray cloud and obtain token
       run: |
         echo token=$(curl -H "Content-Type: application/json" -X POST --data @"cloud_auth.json" ${{ secrets.XRAYCLOUD_BASE_URL }}/api/v1/authenticate| tr -d '"') >> $GITHUB_ENV
